@@ -49,7 +49,7 @@
 
 enum layers {
     COLEMARK_DH,  // default layer
-    //HEBREW,
+    HEBREW,
     SYMBOLS,
     MEDIA,
 };
@@ -65,13 +65,23 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLEMARK_DH] = LAYOUT_ergodox_pretty(
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_LEFT,                                        KC_RIGHT,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-    KC_DELETE,      KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TG(SYMBOLS),                                    TG(SYMBOLS),    KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-    KC_BSPACE,      KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           LT(MEDIA,KC_SCOLON),MT(MOD_LGUI, KC_QUOTE),
-    KC_LSHIFT,      MT(MOD_LCTL, KC_Z),KC_X,        KC_C,           KC_V,           KC_B,           KC_HYPR,                                        KC_MEH,         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RSHIFT,
+    KC_DELETE,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           TG(HEBREW),                                     TG(SYMBOLS),    KC_J,           KC_L,           KC_U,           KC_Y,           LT(MEDIA,KC_SCOLON),KC_BSLASH,
+    KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           MT(MOD_LGUI, KC_QUOTE),
+    KC_LSHIFT,      MT(MOD_LCTL, KC_Z),KC_X,        KC_C,           KC_D,           KC_V,           KC_HYPR,                                        KC_MEH,         KC_K,           KC_H,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RSHIFT,
     LT(SYMBOLS,KC_GRAVE), KC_QUOTE, CAPS_WORD,      KC_LEFT,        KC_RIGHT,                                                                                                       KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    MO(SYMBOLS),
-                                                                                                    MT(MOD_LALT, KC_APPLICATION),KC_LGUI,        KC_LALT,        MT(MOD_LCTL, KC_ESCAPE),
+                                                                                                    MT(MOD_LALT, KC_APPLICATION),KC_LGUI,KC_LALT,   MT(MOD_LCTL, KC_ESCAPE),
                                                                                                                     KC_HOME,        KC_PGUP,
                                                                                     KC_SPACE,       KC_BSPACE,      KC_END,         KC_PGDOWN,      KC_TAB,         KC_ENTER
+  ),
+  [HEBREW] = LAYOUT_ergodox_pretty(
+    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
+    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_QOF,         KC_RESH,        KC_ALEF,        KC_TRNS,                                        KC_TRNS,        KC_TET,         KC_VAV,         KC_NUN_SOFIT,   KC_MEM_SOFIT,   KC_PEH,            KC_TRNS,
+    KC_TRNS,        KC_SHIN,        KC_DALET,       KC_GIMEL,       KC_KAF,         KC_AYIN,                                                                        KC_YOD,         KC_CHET,        KC_LAMED,       KC_KAF_SOFIT,   KC_PEH_SOFIT,      KC_TRNS,
+    KC_TRNS,        KC_ZAYIN,       KC_SAMEKH,      KC_BET,         KC_HEH,         KC_NUN,         KC_TRNS,                                        KC_TRNS,        KC_NUN,         KC_MEM,         KC_TZADI,       KC_TAV,         KC_TZADI_SOFIT,    KC_TRNS,
+    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
+                                                                                                    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+                                                                                                                    KC_TRNS,        KC_TRNS,
+                                                                                    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS
   ),
   [SYMBOLS] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
