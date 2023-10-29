@@ -50,6 +50,7 @@
 enum layers {
     COLEMAK_DHM,  // default layer
     HEBREW_ARKAN,
+    QWERTY_GAMING,
     SYMBOLS,
     MEDIA,
 };
@@ -78,6 +79,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS,        KC_TZADI_SOFIT, KC_NUN_SOFIT,   KC_QOF,         KC_RESH,        KC_ALEF,        KC_TRNS,                                        KC_TRNS,        KC_TET,         KC_VAV,         KC_TAV,         KC_MEM_SOFIT,   KC_PEH,            KC_TRNS,
     KC_TRNS,        KC_SHIN,        KC_DALET,       KC_GIMEL,       KC_KAF,         KC_AYIN,                                                                        KC_YOD,         KC_CHET,        KC_LAMED,       KC_KAF_SOFIT,   KC_PEH_SOFIT,      KC_TRNS,
     KC_TRNS,        KC_ZAYIN,       KC_SAMEKH,      KC_BET,         KC_HEH,         KC_NUN,         KC_TRNS,                                        KC_TRNS,        KC_NUN,         KC_MEM,         KC_TZADI,       KC_TRNS,        KC_TRNS,           KC_TRNS,
+    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
+                                                                                                    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+                                                                                                                    KC_TRNS,        KC_TRNS,
+                                                                                    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS
+  ),
+  [QWERTY_GAMING] = LAYOUT_ergodox_pretty(
+    KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
+    KC_TRNS,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRNS,                                        KC_TRNS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,              KC_TRNS,
+    KC_TRNS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_TRNS,           KC_TRNS,
+    KC_TRNS,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TRNS,                                        KC_TRNS,        KC_N,           KC_M,           KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,
                                                                                                     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
                                                                                                                     KC_TRNS,        KC_TRNS,
