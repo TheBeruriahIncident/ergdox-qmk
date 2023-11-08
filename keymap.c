@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CAPS_WORD,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_TRNS,
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_TRNS,                                        KC_TRNS,        KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
     KC_LCTL,        KC_LGUI,        KC_LALT,        KC_DELETE,      KC_BSPACE,                                                                                                      KC_SPACE,       KC_TAB,         KC_LBRACKET,    KC_RBRACKET,    KC_QUOTE,
-                                                                                                    KC_LEFT,        KC_RIGHT,       KC_UP,          KC_DOWN,
+                                                                                                    KC_UP,          KC_DOWN,        KC_LEFT,        KC_RIGHT,
                                                                                                                     KC_HOME,        KC_PGUP,
                                                                                     TG(HEBREW_ARKAN),TG(QWERTY_GAMING),KC_END,      KC_PGDOWN,      TG(SYMBOLS),    KC_ENTER
   ),
