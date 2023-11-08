@@ -2,13 +2,6 @@
 #include "version.h"
 
 #define LAYER_RETURN KC_TRNS
-#define KC_PC_UNDO LCTL(KC_Z)
-#define KC_PC_CUT LCTL(KC_X)
-#define KC_PC_COPY LCTL(KC_C)
-#define KC_PC_PASTE LCTL(KC_V)
-#define NO_PIPE_ALT KC_GRAVE
-#define NO_BSLS_ALT KC_EQUAL
-#define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)
 
 enum layers {
     COLEMAK_DHM,  // default layer
@@ -16,14 +9,6 @@ enum layers {
     QWERTY_GAMING,
     SYMBOLS,
 };
-
-enum custom_keycodes {
-  RGB_SLD = EZ_SAFE_RANGE,
-  HSV_86_255_128,
-  HSV_172_255_255,
-  HSV_27_255_255,
-};
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COLEMAK_DHM] = LAYOUT_ergodox_pretty(
@@ -68,38 +53,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-
-    case RGB_SLD:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-      }
-      return false;
-    case HSV_86_255_128:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-        rgblight_sethsv(86,255,128);
-      }
-      return false;
-    case HSV_172_255_255:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-        rgblight_sethsv(172,255,255);
-      }
-      return false;
-    case HSV_27_255_255:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-        rgblight_sethsv(27,255,255);
-      }
-      return false;
-  }
-  return true;
-}
 
 uint8_t layer_state_set_user(uint8_t state) {
     uint8_t layer = biton(state);
