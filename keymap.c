@@ -63,15 +63,19 @@ uint8_t layer_state_set_user(uint8_t state) {
   ergodox_right_led_3_off();
   switch (layer) {
     case COLEMAK_DHM:
+      rgblight_sethsv_noeeprom(0,255,255);
       break;
     case HEBREW_ARKAN:
       ergodox_right_led_2_on();
+      rgblight_sethsv_noeeprom(0,170,255);
       break;
     case QWERTY_GAMING:
       ergodox_right_led_1_on();
+      rgblight_sethsv_noeeprom(0,255,255);
       break;
     case SYMBOLS:
       ergodox_right_led_3_on();
+      rgblight_sethsv_noeeprom(0,255,100);
       break;
     default:
       break;
