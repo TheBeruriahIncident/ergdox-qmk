@@ -55,36 +55,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 uint8_t layer_state_set_user(uint8_t state) {
-    uint8_t layer = biton(state);
+  uint8_t layer = biton(state);
+
   ergodox_board_led_off();
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
-    case 1:
-      ergodox_right_led_1_on();
+    case COLEMAK_DHM:
       break;
-    case 2:
+    case HEBREW_ARKAN:
       ergodox_right_led_2_on();
       break;
-    case 3:
-      ergodox_right_led_3_on();
-      break;
-    case 4:
+    case QWERTY_GAMING:
       ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
       break;
-    case 5:
-      ergodox_right_led_1_on();
-      ergodox_right_led_3_on();
-      break;
-    case 6:
-      ergodox_right_led_2_on();
-      ergodox_right_led_3_on();
-      break;
-    case 7:
-      ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
+    case SYMBOLS:
       ergodox_right_led_3_on();
       break;
     default:
@@ -92,4 +78,3 @@ uint8_t layer_state_set_user(uint8_t state) {
   }
   return state;
 };
-
