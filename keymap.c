@@ -62,20 +62,21 @@ uint8_t layer_state_set_user(uint8_t state) {
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
+    // Using the default rainbow animation, so hue has no effect
     case COLEMAK_DHM:
-      rgblight_sethsv_noeeprom(0,255,255);
+      rgblight_sethsv_noeeprom(0,255,255); // Full saturation and brightness
       break;
     case HEBREW_ARKAN:
       ergodox_right_led_2_on();
-      rgblight_sethsv_noeeprom(0,170,255);
+      rgblight_sethsv_noeeprom(0,170,255); // Reduced saturation but full brightness
       break;
     case QWERTY_GAMING:
       ergodox_right_led_1_on();
-      rgblight_sethsv_noeeprom(0,255,255);
+      rgblight_sethsv_noeeprom(0,255,255); // Full saturation and brightness
       break;
     case SYMBOLS:
       ergodox_right_led_3_on();
-      rgblight_sethsv_noeeprom(0,255,100);
+      rgblight_sethsv_noeeprom(0,255,100); // Full saturation but reduced brightness
       break;
     default:
       break;
