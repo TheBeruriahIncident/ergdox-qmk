@@ -4,7 +4,7 @@
 */
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define IGNORE_MOD_TAP_INTERRUPT
-#define FIRMWARE_VERSION u8"LMYA0/ppbrL"
+#define FIRMWARE_VERSION u8"vrpJO/yR7Dz" // This must match the url of the layout on Oryx for Live Training and Keymapp to work
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT

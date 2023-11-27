@@ -5,6 +5,7 @@ CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 CAPS_WORD_ENABLE = yes
 LEADER_ENABLE = no
+ORYX_ENABLE = yes # This tricks Live Training and Keymapp into working
 SRC = matrix.c
 
 UNICODE_COMMON = yes
