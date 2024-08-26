@@ -2,14 +2,20 @@
   Set any config.h overrides for your specific keymap here.
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
-#define USB_SUSPEND_WAKEUP_DELAY 0
+#define USB_SUSPEND_WAKEUP_DELAY 200 // Hopefully this resolves issues with not working after sleep
 #define FIRMWARE_VERSION u8"vrpJO/yR7Dz" // This must match the url of the layout on Oryx for Live Training and Keymapp to work
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
 
-#define RGB_MATRIX_STARTUP_SPD 60
+// Do everything we can to make lights turn off when the computer is off
+#define LED_DISABLE_WHEN_USB_SUSPENDED
+#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#define RGBLIGHT_SLEEP
 
+#define RGB_MATRIX_STARTUP_SPD 60 // Animation speed
+
+// Sets up Hebrew usage
 #define UNICODE_SELECTED_MODES UNICODE_MODE_WINCOMPOSE
 #define KC_ALEF UC(0x05D0)
 #define KC_BET UC(0x05D1)
