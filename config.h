@@ -13,8 +13,6 @@
 #define RGB_DISABLE_WHEN_USB_SUSPENDED
 #define RGBLIGHT_SLEEP
 
-#define RGB_MATRIX_STARTUP_SPD 60 // Animation speed
-
 // Sets up Hebrew usage
 #define UNICODE_SELECTED_MODES UNICODE_MODE_WINCOMPOSE
 #define KC_ALEF UC(0x05D0)

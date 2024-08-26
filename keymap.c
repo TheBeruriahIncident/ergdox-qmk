@@ -55,6 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+void keyboard_pre_init_user(void) {
+  rgb_matrix_set_speed(50); // Animation speed
+}
+
 
 uint8_t layer_state_set_user(uint8_t state) {
   uint8_t layer = biton(state);
@@ -64,21 +68,24 @@ uint8_t layer_state_set_user(uint8_t state) {
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
-    // Using the default rainbow animation, so hue has no effect
     case COLEMAK_DHM:
-      rgblight_sethsv_noeeprom(0,255,255); // Full saturation and brightness
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_LEFT_RIGHT);
+      rgblight_sethsv_noeeprom(50,255,255); // Full saturation and brightness; hue has no effect with this animation
       break;
     case HEBREW_ARKAN:
       ergodox_right_led_2_on();
-      rgblight_sethsv_noeeprom(0,170,255); // Reduced saturation but full brightness
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+      rgblight_sethsv_noeeprom(HSV_GREEN);
       break;
     case QWERTY_GAMING:
       ergodox_right_led_1_on();
-      rgblight_sethsv_noeeprom(0,255,255); // Full saturation and brightness
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+      rgblight_sethsv_noeeprom(HSV_RED);
       break;
     case SYMBOLS:
       ergodox_right_led_3_on();
-      rgblight_sethsv_noeeprom(0,255,100); // Full saturation but reduced brightness
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+      rgblight_sethsv_noeeprom(HSV_CYAN);
       break;
     default:
       break;
