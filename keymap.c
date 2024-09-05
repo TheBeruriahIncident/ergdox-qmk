@@ -25,13 +25,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     TG(HEBREW_ARKAN),TG(QWERTY_GAMING),KC_END,      KC_PAGE_DOWN,   TT(SPECIAL),    KC_ENTER
   ),
   // Note that (per the Hebrew keyboard standard), shift-9 is always an open parenthesis and shift-0 is always a close, even though the symbols are swapped
-  // Shift lets you type Colemak while held. This is similar to a traditional keyboard, except that it's lowercase rather than upper case. Note that the space cadet behavior of parenthesis when tapping shift is preserved.
+  // Shift lets you type Colemak while held. This is similar to a traditional keyboard, except that it's lowercase rather than upper case.
+  // Note that the space cadet behavior of parenthesis when tapping shift is lost, because there's no specific code for parenthesis, and mod keys don't work with layer shift. Probably process_record_user could fix this, but every version of SEND_STRING or tap_code16 I've tried somehow sends F7?!
   // Left control still sends control, but it also momentarily switches to Colemak so that shortcuts will work.
   [HEBREW_ARKAN] = LAYOUT_ergodox_pretty(
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
     KC_TRNS,        KC_TZADI_SOFIT, KC_NUN_SOFIT,   KC_QOF,         KC_RESH,        KC_ALEF,        KC_TRNS,                                        KC_TRNS,        KC_TET,         KC_VAV,         KC_TAV,         KC_MEM_SOFIT,   KC_PEH,         KC_TRNS,
     KC_TRNS,        KC_SHIN,        KC_DALET,       KC_GIMEL,       KC_KAF,         KC_AYIN,                                                                        KC_YOD,         KC_CHET,        KC_LAMED,       KC_KAF_SOFIT,   KC_PEH_SOFIT,   KC_TRNS,
-    LT(HEBREW_SHIFT, KC_LSFT),KC_ZAYIN,KC_SAMEKH,KC_BET,            KC_HEH,         KC_NUN,         KC_TRNS,                                        KC_TRNS,        KC_MEM,         KC_TZADI,       KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+    LM(HEBREW_SHIFT, MOD_LSFT),KC_ZAYIN,KC_SAMEKH,  KC_BET,         KC_HEH,         KC_NUN,         KC_TRNS,                                        KC_TRNS,        KC_MEM,         KC_TZADI,       KC_TRNS,        KC_TRNS,        KC_TRNS,        LM(HEBREW_SHIFT, MOD_RSFT),
     LM(HEBREW_CTRL, MOD_LCTL),KC_TRNS,KC_TRNS,      KC_TRNS,        KC_TRNS,                                                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
                                                                                                     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
                                                                                                                     KC_TRNS,        KC_TRNS,
@@ -49,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_SPACE,       LAYER_RETURN,   KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS
   ),
   [SPECIAL] = LAYOUT_ergodox_pretty(
-    KC_TRNS,        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRNS,                                        KC_TRNS,        KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
+    KC_SYSTEM_SLEEP,KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRNS,                                        KC_TRNS,        KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_F12,
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
