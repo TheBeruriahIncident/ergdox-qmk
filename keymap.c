@@ -3,6 +3,14 @@
 
 #define LAYER_RETURN KC_TRNS // Just as a marker
 
+#define AUTOFIRE_DELAY 50
+bool autofire_active = false;
+uint32_t autofire_timer = 0;
+
+enum custom_keycodes {
+  AUTOFIRE = SAFE_RANGE,
+};
+
 enum layers {
     COLEMAK_DHM,  // default layer
     HEBREW_ARKAN,
@@ -41,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // KC_SPACE is duplicated into an empty space here so that it's available to the left hand while gaming. If KC_SPACE is moved, replace it with KC_NO so that the Hebrew toggle doesn't come through.
   [QWERTY_GAMING] = LAYOUT_ergodox_pretty(
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-    KC_TRNS,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRNS,                                        KC_TRNS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_TRNS,
+    KC_TRNS,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRNS,                                        AUTOFIRE,       KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_TRNS,
     KC_TRNS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SEMICOLON,   KC_TRNS,
     KC_TRNS,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TRNS,                                        KC_TRNS,        KC_N,           KC_M,           KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
     KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,                                                                                                        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
@@ -97,14 +105,37 @@ void keyboard_pre_init_user(void) {
   rgb_matrix_set_speed(50); // Animation speed
 }
 
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  switch (keycode) {
+    case AUTOFIRE:
+      if (record -> event.pressed) {
+        autofire_active = !autofire_active;  // toggle
+        autofire_timer = timer_read32(); // reset timer
+      }
+      break;
+  }
+  return true;
+}
+
+
+void matrix_scan_user(void){
+  if (autofire_active) {
+    if (timer_elapsed32(autofire_timer) > AUTOFIRE_DELAY) {
+      tap_code(KC_F);
+      autofire_timer = timer_read32();  // reset
+    }
+  }
+}
 
 uint8_t layer_state_set_user(uint8_t state) {
   uint8_t layer = biton(state);
 
+  autofire_active = false;
   ergodox_board_led_off();
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
+
   switch (layer) {
     case COLEMAK_DHM:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_LEFT_RIGHT);
